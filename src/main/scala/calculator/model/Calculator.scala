@@ -10,8 +10,6 @@ class Calculator {
 
   def equalPressed() = state.handleEqual
 
-  def operatorPressed() = state.handleOperator
-
   def decimalPressed() = state.handleDecimal
 
   def digitPressed(digit: Int) = state handleDigit digit

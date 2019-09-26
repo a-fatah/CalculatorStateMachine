@@ -11,7 +11,6 @@ class OperationPerformed(
   def handleEqual: State = {
     this
   }
-  def handleOperator: State = ???
 
   def handleDecimal: State = {
     new DecimalExpressionCompleted(calc, lhs, operation)

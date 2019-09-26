@@ -14,7 +14,6 @@ class CalculatingWithDecimalRHS(
     calc.currentValue = result
     this
   }
-  def handleOperator: State = ???
   def handleDecimal: State = this
   def handleDigit(d: Int): State = {
     var currentStr = calc.currentValue.toString

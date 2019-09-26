@@ -5,8 +5,6 @@ import calculator.model.Calculator
 class DecimalLHS(calc: Calculator) extends State(calc) {
   override def handleEqual: State = ???
 
-  override def handleOperator: State = ???
-
   override def handleDecimal: State = this
 
   override def handleDigit(d: Int): State = {

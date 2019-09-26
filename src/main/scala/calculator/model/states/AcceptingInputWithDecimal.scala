@@ -5,8 +5,6 @@ import calculator.model.Calculator
 class AcceptingInputWithDecimal(calc: Calculator) extends State(calc) {
   override def handleEqual = ???
 
-  override def handleOperator = ???
-
   override def handleDecimal = this
 
   override def handleDigit(digit: Int) = {

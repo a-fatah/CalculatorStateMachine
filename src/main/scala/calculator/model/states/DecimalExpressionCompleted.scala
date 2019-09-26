@@ -14,8 +14,6 @@ class DecimalExpressionCompleted(
     this
   }
 
-  def handleOperator: State = ???
-
   def handleDecimal: State = this
 
   def handleDigit(d: Int): State = {

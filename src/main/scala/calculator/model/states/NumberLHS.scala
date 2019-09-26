@@ -7,8 +7,6 @@ class NumberLHS(calc: Calculator) extends State(calc) {
 
   def handleEqual: State = ???
 
-  def handleOperator: State = ???
-
   def handleDecimal: State = new DecimalLHS(calc)
 
   def handleDigit(d: Int): State = {

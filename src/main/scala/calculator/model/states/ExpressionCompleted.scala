@@ -14,8 +14,6 @@ class ExpressionCompleted(
     this
   }
 
-  override def handleOperator: State = ???
-
   override def handleDecimal: State =
     new DecimalExpressionCompleted(calc, lhs, operation)
 

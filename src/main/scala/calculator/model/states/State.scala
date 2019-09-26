@@ -6,7 +6,6 @@ abstract class State(calc: Calculator) {
   var calculator: Calculator = calc
 
   def handleEqual: State
-  def handleOperator: State
   def handleDecimal: State
   def handleDigit(d: Int): State
   def handleClear: State

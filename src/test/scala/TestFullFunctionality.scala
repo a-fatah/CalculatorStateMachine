@@ -97,4 +97,17 @@ class TestFullFunctionality extends FunSuite {
       calculator.displayNumber()
     )
   }
+
+  test("., 3, 5 should display 0.35") {
+    val calculator = new Calculator()
+
+    new DecimalAction(calculator).handle(null)
+    new NumberAction(calculator, 3).handle(null)
+    new NumberAction(calculator, 5).handle(null)
+
+    assert(
+      equalDoubles(calculator.displayNumber(), 0.35),
+      calculator.displayNumber()
+    )
+  }
 }

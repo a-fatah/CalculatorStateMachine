@@ -12,7 +12,10 @@ class AcceptingInputWithDecimal(calc: Calculator) extends State(calc) {
   override def handleDigit(digit: Int) = {
     var currentStr = calc.currentValue.toString
     val dotIndex = currentStr.toString.indexOf('.')
-    calc.currentValue += digit * Math.pow(10, -(currentStr.length - dotIndex))
+    calc.currentValue += digit * 1 / Math.pow(
+      10,
+      (currentStr.length - dotIndex)
+    )
     this
   }
 

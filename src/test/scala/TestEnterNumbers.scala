@@ -1,4 +1,3 @@
-
 import calculator.controller.{DecimalAction, NumberAction}
 import calculator.model.Calculator
 import org.scalatest.FunSuite
@@ -49,10 +48,6 @@ class TestEnterNumbers extends FunSuite {
     new DecimalAction(calculator).handle(null)
     new NumberAction(calculator, 3).handle(null)
 
-
-
-
-
     assert(
       equalDoubles(calculator.displayNumber(), 2.3),
       calculator.displayNumber()
@@ -68,7 +63,6 @@ class TestEnterNumbers extends FunSuite {
     new NumberAction(calculator, 3).handle(null)
     new DecimalAction(calculator).handle(null)
     new NumberAction(calculator, 5).handle(null)
-
 
     assert(
       equalDoubles(calculator.displayNumber(), 2.35),

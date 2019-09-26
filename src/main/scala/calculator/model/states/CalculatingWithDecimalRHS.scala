@@ -23,7 +23,10 @@ class CalculatingWithDecimalRHS(
     calc.currentValue += d * Math.pow(10, -(currentStr.length - dotIndex))
     this
   }
-  def handleClear: State = ???
+  def handleClear: State = {
+    calc.currentValue = 0.0
+    new Zero(calc)
+  }
 
   override def handleMultiplyOperator: State = ???
 

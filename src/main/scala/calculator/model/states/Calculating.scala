@@ -23,7 +23,10 @@ class CalculatingState(
     calculator.currentValue = calculator.currentValue * 10 + d
     this
   }
-  def handleClear: State = ???
+  def handleClear: State = {
+    calc.currentValue = 0.0
+    new Zero(calc)
+  }
 
   override def handleMultiplyOperator: State = {
     val newLHS = operation(lhs, calc.currentValue)

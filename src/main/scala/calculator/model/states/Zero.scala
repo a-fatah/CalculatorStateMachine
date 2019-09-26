@@ -14,7 +14,10 @@ class Zero(calc: Calculator) extends State(calc) {
     new AcceptingInput(calc)
   }
 
-  def handleClear: State = ???
+  def handleClear: State = {
+    calc.currentValue = 0.0
+    new Zero(calc)
+  }
 
   override def handleMultiplyOperator: State = ???
 

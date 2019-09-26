@@ -19,7 +19,10 @@ class AcceptingInputWithDecimalStarted(calc: Calculator) extends State(calc) {
     new AcceptingInputWithDecimal(calc)
   }
 
-  override def handleClear = ???
+  override def handleClear = {
+    calc.currentValue = 0.0
+    new Zero(calc)
+  }
 
   override def handleMultiplyOperator = ???
 

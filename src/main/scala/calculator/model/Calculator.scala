@@ -16,6 +16,6 @@ class Calculator {
 
   def digitPressed(digit: Int) = state handleDigit digit
 
-  def clear() = state.handleClear
+  def clearPressed() = state.handleClear
 
 }

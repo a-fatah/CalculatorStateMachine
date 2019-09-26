@@ -1,6 +1,7 @@
 package calculator.model.states
 
 import calculator.model.Calculator
+import calculator.model.states.Zero
 
 class AcceptingInput(calc: Calculator) extends State(calc) {
 
@@ -15,7 +16,10 @@ class AcceptingInput(calc: Calculator) extends State(calc) {
     this
   }
 
-  def handleClear: State = ???
+  def handleClear: State = {
+    calc.currentValue = 0.0
+    new Zero(calc)
+  }
 
   override def handleMultiplyOperator: State = {
     val nextState =

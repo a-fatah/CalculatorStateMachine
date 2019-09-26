@@ -23,7 +23,7 @@ class EqualAction(calculator: Calculator) extends EventHandler[ActionEvent] {
 
 class ClearAction(calculator: Calculator) extends EventHandler[ActionEvent] {
   override def handle(event: ActionEvent): Unit = {
-    calculator.clear
+    calculator.state = calculator.clearPressed
   }
 }
 

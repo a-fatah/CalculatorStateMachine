@@ -27,11 +27,27 @@ class CalculatingState(
   }
   def handleClear: State = ???
 
-  override def handleMultiplyOperator: State = ???
+  override def handleMultiplyOperator: State = {
+    val new_lhs = operation(lhs, calc.currentValue)
+    calc.currentValue = 0.0
+    new CalculatingState(calc, new_lhs, (x, y) => x * y)
+  }
 
-  override def handleDivideOperator: State = ???
+  override def handleDivideOperator: State = {
+    val new_lhs = operation(lhs, calc.currentValue)
+    calc.currentValue = 0.0
+    new CalculatingState(calc, new_lhs, (x, y) => x / y)
+  }
 
-  override def handleAddOperator: State = ???
+  override def handleAddOperator: State = {
+    val new_lhs = operation(lhs, calc.currentValue)
+    calc.currentValue = 0.0
+    new CalculatingState(calc, new_lhs, (x, y) => x + y)
+  }
 
-  override def handleSubtractOperator: State = ???
+  override def handleSubtractOperator: State = {
+    val new_lhs = operation(lhs, calc.currentValue)
+    calc.currentValue = 0.0
+    new CalculatingState(calc, new_lhs, (x, y) => x - y)
+  }
 }

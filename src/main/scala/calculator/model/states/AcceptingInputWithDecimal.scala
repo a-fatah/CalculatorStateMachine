@@ -3,41 +3,31 @@ package calculator.model.states
 import calculator.model.Calculator
 
 class AcceptingInputWithDecimal(calc: Calculator) extends State(calc) {
-  override def handleEqual: State = ???
+  override def handleEqual = ???
 
-  override def handleOperator: State = ???
+  override def handleOperator = ???
 
-  override def handleDecimal: State = {
-    println(s"state didn't change after pressing decimal when in ${this} state")
+  override def handleDecimal = this
+
+  override def handleDigit(digit: Int) = {
+    var currentStr = calc.currentValue.toString
+    val dotIndex = currentStr.toString.indexOf('.')
+    calc.currentValue += digit * Math.pow(10, -(currentStr.length - dotIndex))
     this
   }
 
-  override def handleDigit(d: Int): State = {
+  override def handleClear = ???
 
-    var currentStr = calc.currentValue.toString
-    println(s"state before pressing digit ${d}: ${calc.state}")
-    val dotIndex = currentStr.toString.indexOf('.')
-    calc.currentValue += d * Math.pow(10, -(currentStr.length - dotIndex))
-    val nextState = this
-    println(s"state after pressing digit ${d}: ${nextState}")
-    nextState
-  }
-
-  override def handleClear: State = ???
-
-  override def handleMultiplyOperator: State =
+  override def handleMultiplyOperator =
     new CalculatingState(calc, calc.currentValue, (x, y) => x * y)
 
-  override def handleDivideOperator: State =
+  override def handleDivideOperator =
     new CalculatingState(calc, calc.currentValue, (x, y) => x / y)
 
-  override def handleAddOperator: State = {
-    println(s"state before applying addition was ${calc.state}")
+  override def handleAddOperator = {
     val next = new CalculatingState(calc, calc.currentValue, (x, y) => x + y)
-    println(s"state after addition: ${next}")
     calc.currentValue = 0.0
     next
-
   }
 
   override def handleSubtractOperator: State =

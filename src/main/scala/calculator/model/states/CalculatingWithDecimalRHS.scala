@@ -10,10 +10,7 @@ class CalculatingWithDecimalRHS(
 
   def handleEqual: State = {
     val rhs = calc.currentValue
-    println(s"RHS: ${rhs}")
-    println(s"LHS: ${lhs}")
     val result = operation(lhs, rhs)
-    println(s"result: ${result}")
     calc.currentValue = result
     this
   }

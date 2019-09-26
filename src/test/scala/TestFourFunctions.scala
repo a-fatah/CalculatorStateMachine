@@ -1,5 +1,11 @@
-
-import calculator.controller.{AdditionAction, DecimalAction, DivisionAction, EqualAction, MultiplicationAction, NumberAction}
+import calculator.controller.{
+  AdditionAction,
+  DecimalAction,
+  DivisionAction,
+  EqualAction,
+  MultiplicationAction,
+  NumberAction
+}
 import calculator.model.Calculator
 import org.scalatest.FunSuite
 
@@ -9,7 +15,6 @@ class TestFourFunctions extends FunSuite {
   def equalDoubles(d1: Double, d2: Double): Boolean = {
     (d1 - d2).abs < EPSILON
   }
-
 
   test("Keypresses 5, *, 4, = should return 20.0") {
     val calculator: Calculator = new Calculator()
@@ -48,10 +53,7 @@ class TestFourFunctions extends FunSuite {
     new DecimalAction(calculator).handle(null)
     new DecimalAction(calculator).handle(null)
     new NumberAction(calculator, 2).handle(null)
-
-    println("pressing decimal...")
     new DecimalAction(calculator).handle(null)
-    println("pressing add button...")
     new AdditionAction(calculator).handle(null)
     new NumberAction(calculator, 4).handle(null)
     new DecimalAction(calculator).handle(null)
@@ -72,10 +74,7 @@ class TestFourFunctions extends FunSuite {
     new DecimalAction(calculator).handle(null)
     new DecimalAction(calculator).handle(null)
     new NumberAction(calculator, 2).handle(null)
-
-    println("pressing decimal...")
     new DecimalAction(calculator).handle(null)
-    println("pressing add button...")
     new AdditionAction(calculator).handle(null)
     new DecimalAction(calculator).handle(null)
     new NumberAction(calculator, 3).handle(null)
@@ -87,5 +86,4 @@ class TestFourFunctions extends FunSuite {
       calculator.displayNumber()
     )
   }
-
 }

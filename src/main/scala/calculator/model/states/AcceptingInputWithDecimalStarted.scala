@@ -10,23 +10,19 @@ class AcceptingInputWithDecimalStarted(calc: Calculator) extends State(calc) {
   override def handleDecimal: State = this
 
   override def handleDigit(d: Int): State = {
-    println(s"State before pressing digit: ${d}: ${calc.state}")
     var currentStr = calc.currentValue.toString
-
     val dotIndex = currentStr.toString.indexOf('.')
     calc.currentValue += d * Math.pow(10, -(currentStr.length - dotIndex - 1))
-    val nextState = new AcceptingInputWithDecimal(calc)
-    println(s"state after pressing digit ${d}: ${nextState}")
-    nextState
+    new AcceptingInputWithDecimal(calc)
   }
 
-  override def handleClear: State = ???
+  override def handleClear = ???
 
-  override def handleMultiplyOperator: State = ???
+  override def handleMultiplyOperator = ???
 
-  override def handleDivideOperator: State = ???
+  override def handleDivideOperator = ???
 
-  override def handleAddOperator: State = ???
+  override def handleAddOperator = ???
 
-  override def handleSubtractOperator: State = ???
+  override def handleSubtractOperator = ???
 }

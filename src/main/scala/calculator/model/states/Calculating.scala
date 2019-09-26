@@ -20,34 +20,32 @@ class CalculatingState(
   }
 
   def handleDigit(d: Int): State = {
-    println(s"State before pressing digit ${d} : ${calc.state}")
     calculator.currentValue = calculator.currentValue * 10 + d
-    println(s"State didn't change after pressing digit")
     this
   }
   def handleClear: State = ???
 
   override def handleMultiplyOperator: State = {
-    val new_lhs = operation(lhs, calc.currentValue)
+    val newLHS = operation(lhs, calc.currentValue)
     calc.currentValue = 0.0
-    new CalculatingState(calc, new_lhs, (x, y) => x * y)
+    new CalculatingState(calc, newLHS, (x, y) => x * y)
   }
 
   override def handleDivideOperator: State = {
-    val new_lhs = operation(lhs, calc.currentValue)
+    val newLHS = operation(lhs, calc.currentValue)
     calc.currentValue = 0.0
-    new CalculatingState(calc, new_lhs, (x, y) => x / y)
+    new CalculatingState(calc, newLHS, (x, y) => x / y)
   }
 
   override def handleAddOperator: State = {
-    val new_lhs = operation(lhs, calc.currentValue)
+    val newLHS = operation(lhs, calc.currentValue)
     calc.currentValue = 0.0
-    new CalculatingState(calc, new_lhs, (x, y) => x + y)
+    new CalculatingState(calc, newLHS, (x, y) => x + y)
   }
 
   override def handleSubtractOperator: State = {
-    val new_lhs = operation(lhs, calc.currentValue)
+    val newLHS = operation(lhs, calc.currentValue)
     calc.currentValue = 0.0
-    new CalculatingState(calc, new_lhs, (x, y) => x - y)
+    new CalculatingState(calc, newLHS, (x, y) => x - y)
   }
 }

@@ -3,13 +3,13 @@ package calculator.model.states
 import calculator.model.Calculator
 import calculator.model.states.Zero
 
-class AcceptingInput(calc: Calculator) extends State(calc) {
+class NumberLHS(calc: Calculator) extends State(calc) {
 
   def handleEqual: State = ???
 
   def handleOperator: State = ???
 
-  def handleDecimal: State = new AcceptingInputWithDecimalStarted(calc)
+  def handleDecimal: State = new DecimalLHS(calc)
 
   def handleDigit(d: Int): State = {
     calculator.currentValue = calculator.currentValue * 10 + d

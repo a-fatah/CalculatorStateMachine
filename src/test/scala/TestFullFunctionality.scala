@@ -178,6 +178,16 @@ class TestFullFunctionality extends FunSuite {
 
   test(
     "Nothing happens if = immediately pressed after an operation without inputting RHS"
-  ) {}
+  ) {
+    val calculator = new Calculator
+
+    new NumberAction(calculator, 3).handle(null)
+    new MultiplicationAction(calculator).handle(null)
+    new EqualAction(calculator).handle(null)
+    assert(
+      equalDoubles(calculator.displayNumber(), 3.0),
+      calculator.displayNumber()
+    )
+  }
 
 }

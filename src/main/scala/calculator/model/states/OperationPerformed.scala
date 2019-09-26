@@ -27,11 +27,15 @@ class OperationPerformed(
     new Zero(calc)
   }
 
-  override def handleMultiplyOperator: State = this
+  override def handleMultiplyOperator: State =
+    new OperationPerformed(calc, lhs, (x, y) => x * y)
 
-  override def handleDivideOperator: State = this
+  override def handleDivideOperator: State =
+    new OperationPerformed(calc, lhs, (x, y) => x / y)
 
-  override def handleAddOperator: State = this
+  override def handleAddOperator: State =
+    new OperationPerformed(calc, lhs, (x, y) => x + y)
 
-  override def handleSubtractOperator: State = this
+  override def handleSubtractOperator: State =
+    new OperationPerformed(calc, lhs, (x, y) => x - y)
 }

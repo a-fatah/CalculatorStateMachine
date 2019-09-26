@@ -2,7 +2,7 @@ package calculator.model.states
 
 import calculator.model.Calculator
 
-class AcceptingInputWithDecimalStarted(calc: Calculator) extends State(calc) {
+class DecimalLHS(calc: Calculator) extends State(calc) {
   override def handleEqual: State = ???
 
   override def handleOperator: State = ???

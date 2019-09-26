@@ -2,14 +2,22 @@ package calculator.model.states
 
 import calculator.model.Calculator
 
-class ExpressionCompleted(calc: Calculator,
-                          lhs: Double,
-                          operation: (Double, Double) => Double) extends State(calc) {
-  override def handleEqual: State = ???
+class ExpressionCompleted(
+    calc: Calculator,
+    lhs: Double,
+    operation: (Double, Double) => Double
+) extends State(calc) {
+  override def handleEqual: State = {
+    val rhs = calc.currentValue
+    val result = operation(lhs, rhs)
+    calc.currentValue = result
+    this
+  }
 
   override def handleOperator: State = ???
 
-  override def handleDecimal: State = new DecimalExpressionCompleted(calc, lhs, operation)
+  override def handleDecimal: State =
+    new DecimalExpressionCompleted(calc, lhs, operation)
 
   override def handleDigit(d: Int): State = {
     calculator.currentValue = calculator.currentValue * 10 + d

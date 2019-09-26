@@ -7,11 +7,11 @@ class Zero(calc: Calculator) extends State(calc) {
 
   def handleOperator: State = ???
 
-  def handleDecimal: State = new AcceptingInputWithDecimalStarted(calc)
+  def handleDecimal: State = new DecimalLHS(calc)
 
   def handleDigit(d: Int): State = {
     calculator.currentValue = d.toDouble
-    new AcceptingInput(calc)
+    new NumberLHS(calc)
   }
 
   def handleClear: State = {

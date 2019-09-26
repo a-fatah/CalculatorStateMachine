@@ -25,17 +25,17 @@ class AcceptingInputWithDecimal(calc: Calculator) extends State(calc) {
   }
 
   override def handleMultiplyOperator =
-    new CalculatingState(calc, calc.currentValue, (x, y) => x * y)
+    new OperationPerformed(calc, calc.currentValue, (x, y) => x * y)
 
   override def handleDivideOperator =
-    new CalculatingState(calc, calc.currentValue, (x, y) => x / y)
+    new OperationPerformed(calc, calc.currentValue, (x, y) => x / y)
 
   override def handleAddOperator = {
-    val next = new CalculatingState(calc, calc.currentValue, (x, y) => x + y)
+    val next = new OperationPerformed(calc, calc.currentValue, (x, y) => x + y)
     calc.currentValue = 0.0
     next
   }
 
   override def handleSubtractOperator: State =
-    new CalculatingState(calc, calc.currentValue, (x, y) => x - y)
+    new OperationPerformed(calc, calc.currentValue, (x, y) => x - y)
 }

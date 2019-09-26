@@ -23,28 +23,28 @@ class AcceptingInput(calc: Calculator) extends State(calc) {
 
   override def handleMultiplyOperator: State = {
     val nextState =
-      new CalculatingState(calc, calc.currentValue, (x, y) => x * y)
+      new OperationPerformed(calc, calc.currentValue, (x, y) => x * y)
     calc.currentValue = 0.0
     nextState
   }
 
   override def handleDivideOperator: State = {
     val nextState =
-      new CalculatingState(calc, calc.currentValue, (x, y) => x / y)
+      new OperationPerformed(calc, calc.currentValue, (x, y) => x / y)
     calc.currentValue = 0.0
     nextState
   }
 
   override def handleAddOperator: State = {
     val nextState =
-      new CalculatingState(calc, calc.currentValue, (x, y) => x + y)
+      new OperationPerformed(calc, calc.currentValue, (x, y) => x + y)
     calc.currentValue = 0.0
     nextState
   }
 
   override def handleSubtractOperator: State = {
     val nextState =
-      new CalculatingState(calc, calc.currentValue, (x, y) => x - y)
+      new OperationPerformed(calc, calc.currentValue, (x, y) => x - y)
     calc.currentValue = 0.0
     nextState
   }

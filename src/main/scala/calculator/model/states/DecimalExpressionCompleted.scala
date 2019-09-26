@@ -2,7 +2,7 @@ package calculator.model.states
 
 import calculator.model.Calculator
 
-class CalculatingWithDecimalRHSStarted(
+class DecimalExpressionCompleted(
     calc: Calculator,
     lhs: Double,
     operation: (Double, Double) => Double

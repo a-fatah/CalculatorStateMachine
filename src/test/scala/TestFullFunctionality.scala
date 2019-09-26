@@ -18,7 +18,7 @@ class TestFullFunctionality extends FunSuite {
     (d1 - d2).abs < EPSILON
   }
 
-  test("Keypresses 1, 2, +, 3, *, 2 = should return 30") {
+  test("1, 2, +, 3, *, 2 = should return 30") {
     val calculator: Calculator = new Calculator()
 
     new NumberAction(calculator, 1).handle(null)
@@ -38,7 +38,7 @@ class TestFullFunctionality extends FunSuite {
     )
   }
 
-  test("Keypresses 1, 2, +, 3, /, 5 = should return 3") {
+  test("1, 2, +, 3, /, 5 = should return 3") {
     val calculator: Calculator = new Calculator()
 
     new NumberAction(calculator, 1).handle(null)
@@ -58,7 +58,7 @@ class TestFullFunctionality extends FunSuite {
     )
   }
 
-  test("Keypresses 1, 2, +, 3, +, 5 = should return 20") {
+  test("1, 2, +, 3, +, 5 = should return 20") {
     val calculator: Calculator = new Calculator()
 
     new NumberAction(calculator, 1).handle(null)
@@ -78,7 +78,7 @@ class TestFullFunctionality extends FunSuite {
     )
   }
 
-  test("Keypresses 1, 2, +, 3, -, 5 = should return 10") {
+  test("1, 2, +, 3, -, 5 = should return 10") {
     val calculator: Calculator = new Calculator()
 
     new NumberAction(calculator, 1).handle(null)
